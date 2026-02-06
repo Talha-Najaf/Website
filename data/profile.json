@@ -3,19 +3,18 @@
   "title": "Aerospace Systems Engineer",
   "tagline": "Flight controls · Guidance & navigation · Autopilot development",
   "description": "I design control architectures and navigation pipelines that keep vehicles on trajectory—under uncertainty, sensor noise, and real-world constraints. Specialized in flight controls, state estimation, and hardware-in-the-loop simulation for UAVs and autonomous systems.",
-  "location": "Asia/Karachi",
+  "location": "Islmabad, Pakistan",
   "availability": "Available for remote/hybrid roles",
-  "email": "talha.malik@example.com",
+  "email": "talhabinnajaf@gmail.com",
   "linkedin": "https://linkedin.com/in/talhamalik",
   "github": "https://github.com/talhamalik",
   "resume": "assets/Talha_Malik_Resume.pdf",
   "skills": [
-    "Flight Controls",
-    "Guidance & Navigation",
-    "Autopilot Dev",
-    "Embedded Systems",
-    "Simulation",
-    "ROS2"
+    "Flight Dynamics & Control Simulation",
+    "Guidance & Navigation Algorithms Design",
+    "Autopilot Development (PX4, ArduPilot)",
+    "SILS and HILS Testing",
+    "Programming: Python, C++, MATLAB/Simulink",
   ],
   "expertise": [
     {
