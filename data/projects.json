@@ -1,0 +1,143 @@
+{
+  "projects": [
+    {
+      "slug": "gemini-hybrid-uav-ugv",
+      "title": "Gemini Hybrid UAV-UGV",
+      "summary": "A transformative hybrid vehicle system that seamlessly transitions between aerial and ground operations for enhanced mission versatility.",
+      "thumbnail": "assets/projects/gemini-thumbnail.jpg",
+      "banner": "assets/projects/gemini-banner.jpg",
+      "tags": ["UAV", "Robotics", "Controls"],
+      "category": "UAV",
+      "date": "2024",
+      "role": "Lead Controls Engineer",
+      "highlights": [
+        "Developed unified control architecture for dual-mode operation",
+        "Implemented adaptive transition logic between flight and ground modes",
+        "Achieved 40% increase in mission endurance vs pure UAV configuration"
+      ],
+      "tech_stack": ["ROS2", "PX4", "MATLAB/Simulink", "Python", "C++"],
+      "challenges": "The primary challenge was maintaining stability during the transition phase. Solved through adaptive gain scheduling and real-time center-of-gravity compensation.",
+      "improvements": "Future iterations would incorporate terrain-aware path planning and predictive maintenance based on vibration analysis.",
+      "links": {
+        "github": "https://github.com/talhamalik/gemini-hybrid",
+        "demo": "https://youtube.com/watch/demo",
+        "report": "assets/projects/gemini-report.pdf"
+      }
+    },
+    {
+      "slug": "gps-denied-rover",
+      "title": "GPS-Denied Rover Navigation",
+      "summary": "Autonomous ground vehicle capable of precise localization and navigation in GPS-denied environments using visual-inertial odometry.",
+      "thumbnail": "assets/projects/rover-thumbnail.jpg",
+      "banner": "assets/projects/rover-banner.jpg",
+      "tags": ["Rover", "SLAM", "Navigation"],
+      "category": "Rover",
+      "date": "2023",
+      "role": "Navigation Engineer",
+      "highlights": [
+        "Implemented visual-inertial odometry with <2% drift over 1km",
+        "Developed robust feature tracking for low-light conditions",
+        "Integrated LiDAR for obstacle avoidance and mapping"
+      ],
+      "tech_stack": ["ROS2", "OpenVINS", "OpenCV", "PCL", "Python"],
+      "challenges": "Feature tracking failure in textureless environments was addressed through multi-sensor fusion with IMU and wheel odometry.",
+      "improvements": "Would add learned place recognition for large-scale loop closure and map reuse.",
+      "links": {
+        "github": "https://github.com/talhamalik/gps-denied-rover",
+        "video": "https://youtube.com/watch/rover-demo"
+      }
+    },
+    {
+      "slug": "hil-test-rig",
+      "title": "HIL Test Rig",
+      "summary": "Comprehensive hardware-in-the-loop simulation platform for rapid autopilot validation and control algorithm testing.",
+      "thumbnail": "assets/projects/hil-thumbnail.jpg",
+      "banner": "assets/projects/hil-banner.jpg",
+      "tags": ["Simulation", "Testing", "Embedded"],
+      "category": "Simulation",
+      "date": "2023",
+      "role": "Systems Engineer",
+      "highlights": [
+        "Built real-time simulation with <5ms latency",
+        "Integrated sensor models for IMU, GPS, magnetometer, barometer",
+        "Automated test suite with 200+ scenarios"
+      ],
+      "tech_stack": ["Gazebo", "JSBSim", "PX4 SITL", "Docker", "Python"],
+      "challenges": "Real-time synchronization between simulation and hardware required custom timing protocols and jitter compensation.",
+      "improvements": "Would add fault injection capabilities and automated regression testing pipeline.",
+      "links": {
+        "github": "https://github.com/talhamalik/hil-rig",
+        "report": "assets/projects/hil-report.pdf"
+      }
+    },
+    {
+      "slug": "wind-aware-planner",
+      "title": "Wind-Aware Path Planner",
+      "summary": "Model predictive control-based trajectory planner that accounts for wind disturbances for fixed-wing UAVs.",
+      "thumbnail": "assets/projects/planner-thumbnail.jpg",
+      "banner": "assets/projects/planner-banner.jpg",
+      "tags": ["UAV", "MPC", "Planning"],
+      "category": "UAV",
+      "date": "2022",
+      "role": "GNC Engineer",
+      "highlights": [
+        "Reduced energy consumption by 25% in windy conditions",
+        "Implemented real-time wind estimation from onboard sensors",
+        "Validated in 50+ flight tests with up to 15 m/s winds"
+      ],
+      "tech_stack": ["CasADi", "ACADO", "MATLAB", "C++", "ROS"],
+      "challenges": "Computational constraints on embedded hardware required solver optimization and problem structure exploitation.",
+      "improvements": "Would incorporate learned wind field models and cooperative planning for multi-UAV scenarios.",
+      "links": {
+        "github": "https://github.com/talhamalik/wind-planner",
+        "demo": "https://youtube.com/watch/planner"
+      }
+    },
+    {
+      "slug": "imitation-learning-stack",
+      "title": "Rover Imitation Learning Stack",
+      "summary": "End-to-end learning framework for autonomous rover navigation trained from expert demonstrations.",
+      "thumbnail": "assets/projects/il-thumbnail.jpg",
+      "banner": "assets/projects/il-banner.jpg",
+      "tags": ["Rover", "ML", "ROS2"],
+      "category": "Rover",
+      "date": "2022",
+      "role": "Robotics Engineer",
+      "highlights": [
+        "Collected 50+ hours of expert driving data",
+        "Trained behavior cloning policy with 94% success rate",
+        "Deployed on embedded Jetson with 30Hz inference"
+      ],
+      "tech_stack": ["PyTorch", "ROS2", "OpenCV", "NVIDIA Jetson", "Python"],
+      "challenges": "Distribution shift between training and deployment environments required data augmentation and domain randomization.",
+      "improvements": "Would add online adaptation and uncertainty-aware planning for safety-critical scenarios.",
+      "links": {
+        "github": "https://github.com/talhamalik/il-rover",
+        "video": "https://youtube.com/watch/il-demo"
+      }
+    },
+    {
+      "slug": "fault-tolerant-ekf",
+      "title": "Fault-Tolerant EKF for UAVs",
+      "summary": "Extended Kalman Filter with sensor fault detection and isolation for robust state estimation in UAVs.",
+      "thumbnail": "assets/projects/ekf-thumbnail.jpg",
+      "banner": "assets/projects/ekf-banner.jpg",
+      "tags": ["UAV", "Estimation", "Fault Detection"],
+      "category": "UAV",
+      "date": "2021",
+      "role": "State Estimation Engineer",
+      "highlights": [
+        "Implemented residual-based fault detection with 95% accuracy",
+        "Designed sensor switching logic for graceful degradation",
+        "Validated through 100+ injected fault scenarios"
+      ],
+      "tech_stack": ["C++", "Eigen", "MATLAB", "PX4", "ROS"],
+      "challenges": "Balancing detection sensitivity vs false alarm rate required statistical analysis and threshold tuning.",
+      "improvements": "Would add machine learning-based fault classification and predictive health monitoring.",
+      "links": {
+        "github": "https://github.com/talhamalik/ft-ekf",
+        "report": "assets/projects/ekf-report.pdf"
+      }
+    }
+  ]
+}

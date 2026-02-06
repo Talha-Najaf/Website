@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Projects by Talha Bin Najaf Malik - Aerospace Systems Engineer. UAVs, rovers, simulations, and autonomous systems.">
+  <title>Projects | Talha Bin Najaf Malik</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Background Elements -->
+  <div class="bg-grid"></div>
+  <div class="starfield"></div>
+  <div class="noise-overlay"></div>
+  
+  <!-- Navigation -->
+  <nav class="navbar">
+    <a href="index.html" class="logo">TALHA BIN NAJAF MALIK</a>
+    <ul class="nav-links">
+      <li><a href="projects.html" class="active">Work</a></li>
+      <li><a href="experience.html">Experience</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="menu-toggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+  
+  <!-- Main Content -->
+  <main class="container">
+    <section class="section" style="flex-direction: column; align-items: stretch;">
+      <div class="projects-header">
+        <div>
+          <h1>Projects Marketplace</h1>
+          <p style="color: var(--text-secondary); margin-top: 0.5rem;">Selectable builds—airframes, autonomy stacks, and test campaigns.</p>
+        </div>
+        <div class="filter-pills">
+          <button class="chip active" data-filter="all">All</button>
+          <button class="chip" data-filter="UAV">UAV</button>
+          <button class="chip" data-filter="Rover">Rover</button>
+          <button class="chip" data-filter="Simulation">Simulation</button>
+        </div>
+      </div>
+      
+      <div id="projects-grid" class="projects-grid">
+        <!-- Projects will be loaded dynamically -->
+        <div class="empty-state" style="grid-column: 1/-1; text-align: center; padding: 3rem;">
+          <p style="color: var(--text-secondary);">Loading projects...</p>
+        </div>
+      </div>
+      
+      <div id="pagination" class="pagination"></div>
+    </section>
+  </main>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2024 Talha Bin Najaf Malik · Aerospace Systems Engineer</p>
+  </footer>
+  
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/projects.js"></script>
+</body>
+</html>

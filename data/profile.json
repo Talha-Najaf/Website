@@ -1,0 +1,34 @@
+{
+  "name": "Talha Bin Najaf Malik",
+  "title": "Aerospace Systems Engineer",
+  "tagline": "Flight controls · Guidance & navigation · Autopilot development",
+  "description": "I design control architectures and navigation pipelines that keep vehicles on trajectory—under uncertainty, sensor noise, and real-world constraints. Specialized in flight controls, state estimation, and hardware-in-the-loop simulation for UAVs and autonomous systems.",
+  "location": "Asia/Karachi",
+  "availability": "Available for remote/hybrid roles",
+  "email": "talha.malik@example.com",
+  "linkedin": "https://linkedin.com/in/talhamalik",
+  "github": "https://github.com/talhamalik",
+  "resume": "assets/Talha_Malik_Resume.pdf",
+  "skills": [
+    "Flight Controls",
+    "Guidance & Navigation",
+    "Autopilot Dev",
+    "Embedded Systems",
+    "Simulation",
+    "ROS2"
+  ],
+  "expertise": [
+    {
+      "label": "Flight Controls",
+      "description": "PID to nonlinear MPC, tuned for robustness"
+    },
+    {
+      "label": "State Estimation",
+      "description": "EKF/UKF, sensor fusion, fault detection"
+    },
+    {
+      "label": "Simulation",
+      "description": "Hardware-in-the-loop, SIL, Monte Carlo validation"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "posts": [
+    {
+      "slug": "fault-tolerant-ekf-design",
+      "title": "Designing a Fault-Tolerant EKF for UAVs",
+      "excerpt": "A deep dive into implementing residual-based fault detection and isolation mechanisms within an Extended Kalman Filter for robust UAV state estimation.",
+      "date": "2024-01-15",
+      "category": "Controls",
+      "readTime": "8 min read",
+      "image": "assets/blog/ekf-post.jpg",
+      "content": "## Introduction\n\nState estimation is the backbone of any autonomous flight system. When sensors fail, the consequences can be catastrophic. In this post, I'll walk through my approach to building a fault-tolerant EKF that can detect, isolate, and recover from sensor failures in real-time.\n\n## The Problem\n\nTraditional EKFs assume all sensors are trustworthy. In reality, GPS dropouts, IMU saturation, and magnetometer interference are common. The challenge is distinguishing between normal noise and actual faults.\n\n## Solution Architecture\n\nThe fault-tolerant EKF uses three key mechanisms:\n\n1. **Residual Monitoring**: Each sensor's innovation sequence is monitored for statistical anomalies\n2. **Hypothesis Testing**: A bank of EKFs runs in parallel, each excluding one sensor\n3. **Graceful Degradation**: When a fault is detected, the system switches to a reduced sensor configuration\n\n## Implementation Details\n\nThe residual-based approach uses a chi-squared test on the normalized innovation squared (NIS). When NIS exceeds a threshold for consecutive samples, a fault is declared.\n\n## Results\n\nTesting with 100+ injected fault scenarios showed 95% detection accuracy with <2% false alarm rate. The system maintained safe flight even with complete GPS loss for up to 60 seconds.\n\n## Conclusion\n\nFault tolerance isn't just about redundancy—it's about intelligent monitoring and rapid adaptation. The techniques discussed here have been validated in flight and are applicable to a wide range of autonomous systems."
+    },
+    {
+      "slug": "sil-to-flight-checklist",
+      "title": "From SIL to Flight: A Testing Checklist",
+      "excerpt": "A comprehensive checklist for transitioning control algorithms from simulation to real flight tests, based on lessons learned from multiple UAV projects.",
+      "date": "2023-11-28",
+      "category": "Testing",
+      "readTime": "6 min read",
+      "image": "assets/blog/testing-post.jpg",
+      "content": "## The Gap Between Simulation and Reality\n\nEvery robotics engineer knows the pain: code works perfectly in simulation, fails mysteriously in real flight. After years of debugging crashed drones, I've developed a systematic checklist for this transition.\n\n## Pre-Flight Verification\n\n### 1. Sensor Calibration\n- [ ] IMU temperature compensation verified\n- [ ] Magnetometer hard/soft iron calibration\n- [ ] Barometer noise characterization\n- [ ] GPS accuracy assessment in target environment\n\n### 2. Control Loop Validation\n- [ ] Step response matches simulation within 10%\n- [ ] Gain margins verified with injected noise\n- [ ] Saturation handling tested\n- [ ] Emergency modes (RTL, Land) validated\n\n### 3. Hardware-in-the-Loop\n- [ ] Real-time constraints met (<5ms jitter)\n- [ ] Sensor models match real characteristics\n- [ ] Actuator dynamics included\n- [ ] Fault injection scenarios passed\n\n## First Flight Protocol\n\n1. **Tethered Test**: Verify basic stability with safety line\n2. **Hover Test**: 30-second hover with position hold\n3. **Waypoint Mission**: Simple box pattern at 10m altitude\n4. **Edge Cases**: Max speed, max climb rate, wind handling\n\n## Lessons Learned\n\nThe most common failures are timing-related. Always profile your code on the actual flight computer, not your development machine."
+    },
+    {
+      "slug": "tuning-mpc-wind",
+      "title": "Tuning MPC for Wind Rejection",
+      "excerpt": "Practical tips for tuning Model Predictive Controllers to handle wind disturbances in fixed-wing UAV applications.",
+      "date": "2023-09-10",
+      "category": "Controls",
+      "readTime": "7 min read",
+      "image": "assets/blog/mpc-post.jpg",
+      "content": "## Why MPC for Wind?\n\nModel Predictive Control offers inherent advantages for wind rejection: it looks ahead, respects constraints, and can explicitly model disturbances. But tuning it for aerial vehicles requires careful consideration.\n\n## Key Tuning Parameters\n\n### Prediction Horizon\nFor wind rejection, the horizon must capture the relevant dynamics:\n- Fixed-wing: 2-3x the turn radius at cruise speed\n- Multirotor: 1-2 seconds of flight time\n\n### Disturbance Model\nAdding a wind state to the prediction model significantly improves performance. I use a simple random walk model with appropriate covariance.\n\n### Cost Function Weights\nThe trade-off between tracking accuracy and control smoothness becomes critical in wind. I recommend:\n- High weight on position error\n- Moderate weight on velocity error\n- Low weight on control rate (for smooth actuation)\n\n## Real-World Results\n\nOn a 2kg fixed-wing platform, the tuned MPC reduced cross-track error by 60% in 10 m/s winds compared to a well-tuned PID controller.\n\n## Computational Considerations\n\nMPC on embedded hardware requires careful formulation. Using ACADO Toolkit with code generation, I achieved 50Hz update rate on a Pixhawk 4."
+    },
+    {
+      "slug": "rover-imitation-learning",
+      "title": "Rover Imitation Learning: Lessons Learned",
+      "excerpt": "Reflections on training end-to-end navigation policies for ground robots from expert demonstrations.",
+      "date": "2023-06-22",
+      "category": "ML",
+      "readTime": "5 min read",
+      "image": "assets/blog/il-post.jpg",
+      "content": "## The Promise of Imitation Learning\n\nWhy write complex planners when you can learn from experts? This was the question that started my journey into imitation learning for rover navigation.\n\n## Data Collection\n\nQuality demonstrations are crucial. I used a game controller to drive 50+ hours across varied terrain. Key lessons:\n\n1. **Coverage matters**: Include edge cases (obstacles, tight turns, slopes)\n2. **Consistency helps**: Smooth, deliberate driving is easier to learn\n3. **Label everything**: Timestamped sensor data enables rich supervision\n\n## Model Architecture\n\nThe final architecture was surprisingly simple:\n- Input: 224x224 RGB image + current velocity\n- Backbone: ResNet-18 (pretrained on ImageNet)\n- Output: Steering angle + throttle\n\n## The Distribution Shift Problem\n\nThe biggest challenge: the policy encounters states never seen during training. Solutions that worked:\n\n1. **Data augmentation**: Random brightness, contrast, noise\n2. **Domain randomization**: Vary simulation parameters\n3. **DAgger iterations**: Collect data from the learned policy\n\n## Deployment\n\nRunning at 30Hz on Jetson Nano required TensorRT optimization. The final model uses 2GB memory and achieves 15ms inference time."
+    }
+  ]
+}
